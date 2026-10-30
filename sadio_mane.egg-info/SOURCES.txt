@@ -1,0 +1,8 @@
+LICENSE
+pyproject.toml
+sadio_mane/__init__.py
+sadio_mane/main.py
+sadio_mane.egg-info/PKG-INFO
+sadio_mane.egg-info/SOURCES.txt
+sadio_mane.egg-info/dependency_links.txt
+sadio_mane.egg-info/top_level.txt
