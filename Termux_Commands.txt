@@ -1,0 +1,131 @@
+TERMUX BASICS – COMMANDS
+
+1. termux-setup-storage
+   Allow permission for storage.
+
+2. apt list
+
+3. apt update
+
+4. apt list --upgradable
+
+5. apt list --installed
+
+6. apt list && apt update && apt upgrade
+
+7. apt --help
+
+8. clear
+
+9. apt install zip
+
+10. apt remove zip
+
+11. pkg install zip
+
+12. pkg uninstall zip
+
+13. history
+
+14. exit
+
+15. pwd
+
+16. cd ..
+
+17. ls
+
+18. cd
+    Home directory
+
+19. cd ../..
+
+20. mkdir haha
+
+21. touch apb.txt
+
+22. touch .hidden.txt
+
+23. ls -la
+    To see hidden files
+
+24. ls -la
+
+25. rm .hiddenfile.txt
+    Remove files
+
+26. ls -la
+
+27. touch fileone.txt filetwo.py .filethree.py
+    To create multiple files
+
+28. rm
+    To remove all files
+
+29. mkdir first second .third
+
+30. rmdir .third
+
+31. rm -rf haha
+    To remove non-empty directory
+
+32. mv two /data/data/com/path
+    Where to move directory
+
+33. cp -r two.apk /path of directory
+
+34. cat one.txt
+
+35. apt install nano
+
+36. nano one.txt
+
+37. Ctrl + X
+
+38. Install Termux API from GUI mode.
+
+39. Then open Termux.
+
+40. cd
+
+41. apt install termux-api
+
+42. termux-battery-status
+
+43. termux-call-log
+
+44. termux-camera-info
+
+45. termux-camera-photo -c 0 back.jpeg
+
+46. termux-contact-list
+
+47. termux-location
+
+48. termux-microphone-record -d
+
+49. termux-microphone-record -q
+
+50. termux-sensor -l
+
+51. termux-sms-list
+
+52. termux-telephony-call 123456
+
+53. termux-telephony-cellinfo
+
+54. termux-telephony-deviceinfo
+
+55. termux-torch on/off
+
+56. termux-tts-engines
+
+57. termux-tts-speak hello how are you
+
+58. termux-tts-speak enter
+
+59. Ctrl + Z
+
+60. Termux styling install
+
+61. apt install zip unzip

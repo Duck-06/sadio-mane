@@ -1,0 +1,111 @@
+import java.util.Scanner;
+
+public class Dynamic_Channel {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Total number of channels
+        System.out.print("Enter total channels (50-100): ");
+        int total = sc.nextInt();
+
+        if (total < 50 || total > 100) {
+            System.out.println("Invalid channel count");
+            return;
+        }
+
+        // Divide channels
+        int control = (int)Math.ceil(total * 0.10);
+        int voice = total - control;
+
+        System.out.println("Control Channels: " + control);
+        System.out.println("Voice Channels: " + voice);
+
+        // Input cluster size
+        System.out.print("Enter cluster size: ");
+        int n = sc.nextInt();
+
+        // One control channel shared by two cells
+        int requiredControl = (n + 1) / 2;
+
+        if (requiredControl > control) {
+            System.out.println("Not enough control channels");
+            return;
+        }
+
+        // Input traffic demand
+        int demand[] = new int[n];
+        int totalDemand = 0;
+        int max = 0;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Demand for Cell " + (i+1) + ": ");
+            demand[i] = sc.nextInt();
+
+            totalDemand += demand[i];
+
+            if (demand[i] > max)
+                max = demand[i];
+        }
+
+        // Check voice channel availability
+        if (totalDemand > voice) {
+            System.out.println("Not enough voice channels");
+            return;
+        }
+
+        // Control channel matrix
+        int controlMatrix[][] = new int[n][1];
+
+        for (int i = 0; i < n; i++) {
+            controlMatrix[i][0] = (i / 2) + 1;
+        }
+
+        // Voice channel matrix
+        int voiceMatrix[][] = new int[n][max];
+
+        int ch = control + 1;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < demand[i]; j++) {
+                voiceMatrix[i][j] = ch++;
+            }
+        }
+
+        // Display control matrix
+        System.out.println("\nCONTROL CHANNEL MATRIX");
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Cell " + (i+1) + " : " +
+                               controlMatrix[i][0]);
+        }
+
+        // Display voice channel matrix
+        System.out.println("\nVOICE/DATA CHANNEL MATRIX");
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Cell " + (i+1) + " : ");
+
+            for (int j = 0; j < max; j++) {
+                if (voiceMatrix[i][j] == 0)
+                    System.out.print("- ");
+                else
+                    System.out.print(voiceMatrix[i][j] + " ");
+            }
+
+            System.out.println();
+        }
+
+        // Final summary
+        System.out.println("\nFINAL SUMMARY");
+        System.out.println("Total Channels: " + total);
+        System.out.println("Control Channels: " + control);
+        System.out.println("Voice Channels: " + voice);
+        System.out.println("Cluster Size: " + n);
+        System.out.println("Total Traffic Demand: " + totalDemand);
+        System.out.println("Unused Voice Channels: " +
+                           (voice - totalDemand));
+
+        sc.close();
+    }
+}

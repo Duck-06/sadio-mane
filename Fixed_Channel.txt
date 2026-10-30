@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class Fixed_Channel {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input total channels
+        System.out.print("Enter total number of channels: ");
+        int total = sc.nextInt();
+
+        if (total < 50 || total > 100) {
+            System.out.println("Invalid number of channels");
+            return;
+        }
+
+        // Calculate control and voice channels
+        int control = (int)Math.ceil(total * 0.15);
+        int voice = total - control;
+
+        // Input cluster size
+        System.out.print("Enter cluster size (7, 9, 13): ");
+        int n = sc.nextInt();
+
+        if (n != 7 && n != 9 && n != 13) {
+            System.out.println("Invalid cluster size");
+            return;
+        }
+
+        // Calculate matrix columns
+        int c = (control + n - 1) / n;
+        int v = (voice + n - 1) / n;
+
+        // Control channel matrix
+        int controlMatrix[][] = new int[n][c];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < c; j++) {
+                controlMatrix[i][j] = ((i + j * n) % control) + 1;
+            }
+        }
+
+        // Voice channel matrix
+        int voiceMatrix[][] = new int[n][v];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < v; j++) {
+
+                int ch = control + 1 + i + j * n;
+
+                if (ch <= total)
+                    voiceMatrix[i][j] = ch;
+                else
+                    voiceMatrix[i][j] = 0;
+            }
+        }
+
+        // Display control matrix
+        System.out.println("\nThe control channel matrix is:");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < c; j++) {
+                System.out.print(controlMatrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        // Display voice matrix
+        System.out.println("\nThe traffic channel matrix is:");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < v; j++) {
+                if (voiceMatrix[i][j] == 0)
+                    System.out.print("-\t");
+                else
+                    System.out.print(voiceMatrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}

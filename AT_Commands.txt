@@ -1,0 +1,116 @@
+4A
+
+AT
+
+AT+CSQ
+
+AT+CSQ?
+
+AT+CMGF=1
+
+AT+CMGL="ALL"
+
+AT+CMGL="REC UNREAD"
+
+AT+CMGL="REC READ"
+
+AT+CMGS="<mobile number of recipient>"
+
+HELLO
+
+Ctrl + Z
+
+AT+CMGD=<message index>
+
+AT+CPIN?
+
+AT+CPLS
+
+AT+CENG=1
+
+AT+CPOL
+
+AT+CPOL?
+
+AT+GMR
+
+AT+CGSN
+
+AT+CIMI
+
+AT+CBC
+
+AT+CLTS
+
+AT+CLTS?
+
+AT+COPS?
+
+AT+CREG?
+
+AT+CREG=2
+
+AT+CREG
+
+AT+CCLK?
+
+AT+CGPSINFO
+
+AT+CGNSINF
+
+ATD<mobile number of host>
+
+ATD<mobile number of host>;
+
+ATD<mobile number of host>;
+
+ATD+<mobile number of host>;
+
+ATD+<mobile number of host>
+
+AT+CLIP=1
+
+AT+CLIP?
+
+AT+COLP=1
+
+AT+CLOC
+
+AT+CEER
+
+AT+FCLASS=?
+
+
+
+
+4B
+
+AT
+
+AT+CSQ
+
+AT+CREG=2
+
+AT+CREG?
+
+AT+COPS?
+
+AT+CPIN?
+
+AT+CMGF=1
+
+AT+CMGL="REC UNREAD"
+
+AT+CMGL="REC READ"
+
+AT+GMR
+
+AT+CGSN
+
+AT+CIMI
+
+AT+CBC
+
+AT+CGATT?
+
+AT+CGDCONT?
